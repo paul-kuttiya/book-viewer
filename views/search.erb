@@ -12,7 +12,16 @@
   
   <ul>
     <% @results.each do |result| %>
-      <li><a href="/chapters/<%= result[:number] %>"><%= result[:chapter] %></a></li>
+      <li><%= result[:name] %></li>
+        <ul>
+          <% result[:paragraph].each do |idx, text| %>
+            <li>
+              <a href="/chapters/<%= result[:number] %>#paragraph<%= idx %>">
+                <%= text %>
+              </a>
+            </li>
+          <% end %>          
+        </ul>
     <% end %>
   </ul>
 <% end %>
